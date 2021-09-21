@@ -30,6 +30,14 @@ const server = http.createServer((req, res) => {
         });
         res.statusCode = 302;
         res.setHeader('Location', '/');
+        return res.end;
+    }
+    else {
+        res.setHeader('Content-Type', ('text/html'))
+        res.write('html');
+        res.write('<head><title>Error</title></head>');
+        res.write('<body><p>Error has occured. Please try again later.</p></body>');
+        res.write('</html>');
         res.end;
     }
 });
